@@ -11,7 +11,7 @@ const {
     createMyTrail,
     getMyTrails,
     getMyTrail,
-    deleteWorkout,
+    deleteTrail,
     updateMyTrail,
 } = require("../controllers/mytrailsController")
 
@@ -27,7 +27,7 @@ router.get("/:id", getMyTrail)
 router.post("/", createMyTrail)
 
 //DELETE a new myTrails
-router.delete("/:id", deleteWorkout)
+router.delete("/:id", deleteTrail)
 
 //PATCH a new myTrails
 router.patch("/:id", updateMyTrail)

@@ -1,5 +1,5 @@
 
-const { MongoClient } = require("mongodb");
+const { MongoClient, ObjectId } = require("mongodb");
 require("dotenv").config();
 const { MONGO_URI } = process.env;
 
@@ -11,7 +11,7 @@ const options = {
 
 // const myTrails = require("../models/mytrailsModel")
 
-// get all workouts
+// get all trails
 const getMyTrails = async (req, res) => {
     const client = new MongoClient(MONGO_URI, options);
     const db = client.db("HikerSpecs");
@@ -19,14 +19,15 @@ const getMyTrails = async (req, res) => {
     res.status(200).json(myTrails)
 }
 // Working but does not return/recognize ids
-// get a single workout
+// get a single trail
 const getMyTrail = async (req, res) => {
     const client = new MongoClient(MONGO_URI, options);
     const db = client.db("HikerSpecs");
     await client.connect();
 
     const { id } = req.params
-    const myTrail = await db.collection("mytrails").findOne({id})
+    const myTrail = await db.collection("mytrails").findOne({_id: ObjectId(id)})
+    console.log(myTrail)
     if (!myTrail) {
         return res.status(404).json({
             error: "Trail does not exist"
@@ -35,7 +36,7 @@ const getMyTrail = async (req, res) => {
     res.status(200).json(myTrail)
 }
 
-// create a new workout
+// create a new trail
 const createMyTrail = async (req, res) => {
     const client = new MongoClient(MONGO_URI, options);
     const db = client.db("HikerSpecs");
@@ -70,14 +71,14 @@ const createMyTrail = async (req, res) => {
     console.log("disconnected!")
 }
 
-// delete a workout
-const deleteWorkout = async (req, res) => {
+// delete a trail
+const deleteTrail = async (req, res) => {
     const client = new MongoClient(MONGO_URI, options);
     const db = client.db("HikerSpecs");
     // await client.connect();
 
     const { id } = req.params
-    const myTrail = await db.collection("mytrails").deleteOne({ id })
+    const myTrail = await db.collection("mytrails").deleteOne({_id: ObjectId(id)})
     if (!myTrail) {
         return res.status(500).json({
             error: "Cannot delete"
@@ -86,7 +87,7 @@ const deleteWorkout = async (req, res) => {
     res.status(200).json(myTrail)
 }
 
-// update a workout
+// update a trail
 const updateMyTrail = async (req, res) => {
     const client = new MongoClient(MONGO_URI, options);
     const db = client.db("HikerSpecs");
@@ -106,6 +107,6 @@ module.exports = {
     createMyTrail,
     getMyTrails,
     getMyTrail,
-    deleteWorkout,
+    deleteTrail,
     updateMyTrail,
 }
