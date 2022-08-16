@@ -40,25 +40,11 @@ const getMyTrail = async (req, res) => {
 const createMyTrail = async (req, res) => {
     const client = new MongoClient(MONGO_URI, options);
     const db = client.db("HikerSpecs");
-    const { _id, Trail, AverageTime, DistanceMI, DistanceKM, Start, Difficulty, Specs} = req.body 
-        // try {
-    //     await client.connect();
-    //     const myNewTrail = await db.collection("mytrails").insertOne(req.body);
-    //     res.status(201).json({
-    //         status: 201,
-    //         data: myNewTrail
-    //     })
-    // } catch (err) {
-    //     res.status(500).json({
-    //         status: 500,
-    //         data: req.body,
-    //         message: err.message
-    //     })
-    // }
+    const { _id, trail, averageTime, distanceMI, distanceKM, start, difficulty, specs} = req.body 
     //add doc to db
     try {
         await client.connect();
-        const myNewTrail = await db.collection("mytrails").insertOne({ _id, Trail, AverageTime, DistanceMI, DistanceKM, Start, Difficulty, Specs});
+        const myNewTrail = await db.collection("mytrails").insertOne(req.body);
         res.status(201).json(myNewTrail)
     } catch (err) {
         res.status(500).json({
@@ -92,7 +78,7 @@ const updateMyTrail = async (req, res) => {
     const client = new MongoClient(MONGO_URI, options);
     const db = client.db("HikerSpecs");
     const { id } = req.params;
-    const query = { id };
+    const query = {_id: ObjectId(id)};
     const newValues = { $set: { ...req.body } };
 
     // const myTrail = await db.collection("mytrails").updateOne(query, newValue)

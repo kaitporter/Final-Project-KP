@@ -15,7 +15,7 @@ const {
     updateMyTrail,
 } = require("../controllers/mytrailsController")
 
-const router = express.Router()
+const router = express.Router() 
 
 //GET all myTrails
 router.get("/", getMyTrails)

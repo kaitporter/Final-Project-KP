@@ -13,7 +13,6 @@ express()
 
 //routes
     .use("/api/mytrails", myTrailRoutes)
-//MY CODE
 
 //listen for requests
     .listen(PORT, () => {
