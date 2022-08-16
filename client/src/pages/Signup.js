@@ -3,9 +3,10 @@ import { useState } from "react";
 const Signup = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [confirmPassword, setConfirmPassword] = useState("")
     const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log(email, password)
+        console.log(email, password, confirmPassword)
     }
 
     return (
@@ -17,11 +18,17 @@ const Signup = () => {
             onChange={(e) => setEmail(e.target.value)}
             value={email}
             />
-            <label>Password:</label>
+            <label>Create password:</label>
             <input
             type="password"
             onChange={(e) => setPassword(e.target.value)}
             value={password}
+            />
+            <label>Confirm Password:</label>
+            <input
+            type="password"
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            value={confirmPassword}
             />
             <button>Sign up</button>
         </form>

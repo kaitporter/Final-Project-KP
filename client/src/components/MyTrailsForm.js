@@ -48,7 +48,7 @@ const MyTrailsForm = () => {
 
     return (
         <form className="create" onSubmit={handleSubmit}>
-            <h3>Add a New Trail</h3>
+            <h3>Add a trail!</h3>
 
             <label>Trail: </label>
             <input

@@ -12,6 +12,11 @@ export const myTrailsReducer = (state, action) => {
             return {
                 myTrails: [action.payload, ...state.myTrails]
             }
+            //not working, not requirement, comeback TNNDOCE
+        // case "DELETE_MYTRAIL":
+        //     return {
+        //         myTrails: state.myTrails.filter()
+        //     }
         default:
             return state
     }
