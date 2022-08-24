@@ -1,4 +1,5 @@
 // to be implimented
+
 import styled from "styled-components"
 import { Link } from "react-router-dom"
 
@@ -8,10 +9,10 @@ const TrailSearch = () => {
         <input></input>
         <Div>
         <Li>
-        <Link to="/" style={{ textDecoration: 'none' }}>Camino del Norte</Link>
+        <Link to="/caminodelnorte" style={{ textDecoration: 'none' }}>Camino del Norte</Link>
         </Li>
         <Li>
-        <Link to="/" style={{ textDecoration: 'none' }}>Camino Portugués</Link>
+        <Link to="/caminoportugues" style={{ textDecoration: 'none' }}>Camino Portugués</Link>
         </Li>
         <Li>
         <Link to="/" style={{ textDecoration: 'none' }}>Camino Inglés</Link>

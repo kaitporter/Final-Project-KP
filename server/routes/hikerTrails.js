@@ -9,10 +9,10 @@ const {
 const router = express.Router()
 
 //every trail route
-router.post('/', getHikerTrails)
+router.get('/', getHikerTrails)
 
 //single trail route
-router.post('/:id', getHikerTrail)
+router.get('/:id', getHikerTrail)
 
 
 module.exports = router

@@ -6,6 +6,8 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Navbar from "./components/Navbar";
 import MyProfile from "./pages/MyProfile";
+import CaminoDelNorte from "./trails/CaminoDelNorte";
+import CaminoPortugues from "./trails/CaminoPortugues";
 
 const App = () => {
   return (
@@ -29,6 +31,14 @@ const App = () => {
           <Route
           path="/myprofile"
           element={<MyProfile/>}
+          />
+          <Route
+          path="/caminodelnorte"
+          element={<CaminoDelNorte/>}
+          />
+                    <Route
+          path="/caminoportugues"
+          element={<CaminoPortugues/>}
           />
         </Routes>
         </div>

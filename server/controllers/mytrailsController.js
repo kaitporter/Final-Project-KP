@@ -18,7 +18,7 @@ const getMyTrails = async (req, res) => {
     const myTrails = await db.collection("mytrails").find().toArray();
     res.status(200).json(myTrails)
 }
-// Working but does not return/recognize ids
+
 // get a single trail
 const getMyTrail = async (req, res) => {
     const client = new MongoClient(MONGO_URI, options);

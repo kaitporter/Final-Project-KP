@@ -23,28 +23,15 @@ const getHikerTrail = async (req, res) => {
     const db = client.db("HikerSpecs");
     await client.connect();
 
-    try {
     const { id } = req.params;
     const result = await db.collection("hikertrails").findOne({_id: ObjectId(id)});
-
-    return result
-        ? res.status(200).json({ 
-            status: 200, 
-            _id, 
-            data: result })
-        : res.status(404).json({ 
-            status: 404, 
-            _id, 
-            data: "Not found" });
-    } catch (err) {
-        res.status(500).json({
-            status: 500,
-            data: req.body,
-            message: err.message
+    console.log(result)
+    if (!result) {
+        return res.status(404).json({
+            error: "Trail does not exist"
         })
-    } finally {
-    client.close();
     }
+    res.status(200).json(result)
 };
 
 module.exports = {
