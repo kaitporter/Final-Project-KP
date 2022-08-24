@@ -1,24 +1,23 @@
 // import styled from "styled-components";
-// import { useMyTrailsContext } from "../hooks/useMyTrailsContext"
+import { useMyTrailsContext } from "../hooks/useMyTrailsContext"
+import { TiDelete } from "react-icons/ti";
 
 const MyTrailDetails = ({ myTrail }) => {
-    //not working, not requirement, comeback TNNDOCE
-    // const { dispatch } = useMyTrailsContext()
+    const { dispatch } = useMyTrailsContext()
 
-    // const handleClick = async (e) => {
-    //     const response = await fetch("/api/mytrails/" + myTrail._id,  {
-    //         method: "DELETE"
-    //     })
-    //     const json = await response.json()
+    const handleClick = async (e) => {
+        const response = await fetch(`/api/mytrails/${myTrail._id}`,  {
+            method: "DELETE"
+        })
+        const json = await response.json()
 
-    //     if (response.ok) {
-    //         dispatch({
-    //             type: "DELETE_MYTRAIL", 
-    //             payload: json
-    //         })
-    //     }
-    // }
-
+        if (response.ok) {
+            dispatch({
+                type: "DELETE_MYTRAIL", 
+                payload: json
+            })
+        }
+    }
     // const handleClick = () => {
     //     fetch("api/mytrails" + myTrail._id).then(res => {
     //         if(res.ok) {
@@ -39,7 +38,7 @@ const MyTrailDetails = ({ myTrail }) => {
             <p><strong>Trailhead: </strong>{myTrail.start}</p>
             <p><strong>Difficulty: </strong>{myTrail.difficulty}</p>
             <p><strong>Notes: </strong>{myTrail.specs}</p>
-            {/* <span onClick={handleClick}>delete</span> */}
+            <span onClick={handleClick}><TiDelete/></span>
         </div>
     )
 }

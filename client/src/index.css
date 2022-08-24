@@ -9,7 +9,7 @@
 body {
   background: #f1f1f1;
   margin: 0;
-  font-family: "Roboto";
+  font-family: "Helvetica";
 }
 header {
   background: #fff;
@@ -23,15 +23,16 @@ header .container {
   justify-content: space-between;
 }
 header a {
-  color: #333;
+  color: #75C6BA;
   text-decoration: none;
+  padding-left: 25px;
 }
 .pages{
   max-width: 1400px;
   padding: 20px;
   margin: 0 auto;
 }
-/* homepage */
+/* myprofile */
 .myprofile {
   display: grid;
   grid-template-columns: 3fr 1fr;
@@ -48,7 +49,7 @@ header a {
 .mytrail-details h4 {
   margin: 0 0 10px 0;
   font-size: 1.2em;
-  color: var(--primary);
+  color: #75C6BA;
 }
 .mytrail-details p {
   margin: 0;
@@ -63,7 +64,7 @@ header a {
   background: #f1f1f1;
   padding: 6px;
   border-radius: 50%;
-  color: #333;
+  color: #555;
 }
 
 label, input {
@@ -73,17 +74,17 @@ input {
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 20px;
-  width: 100%;
+  width: 75%;
   border: 1px solid #ddd;
   border-radius: 4px;
   box-sizing: border-box;
 }
 form button {
-  background: var(--primary);
+  background: #75C6BA;
   border: 0;
   color: #fff;
   padding: 10px;
-  font-family: "Poppins";
+  font-family: "Helvetica";
   border-radius: 4px;
   cursor: pointer;
 }
@@ -96,3 +97,26 @@ div.error {
   margin: 20px 0;
 }
 
+/* map */
+.map-container {
+  width: 100%;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  height: 100%;
+}
+
+.sidePanel {
+  background-color: #75C6BA;
+  width: 20%;
+
+  padding: 1rem;
+  color: black;
+}
+
+.map {
+  width: 80%;
+  height: 100vh;
+}
