@@ -5,6 +5,8 @@ import { useMyTrailsContext } from "../hooks/useMyTrailsContext"
 import MyTrailDetails from "../components/MyTrailDetails" 
 import MyTrailsForm from "../components/MyTrailsForm"
 
+
+
 const MyProfile = () => {
 
     const { myTrails, dispatch } = useMyTrailsContext()
